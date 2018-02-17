@@ -10,6 +10,8 @@ const app = express();
 const PORT = 3000;
 
 // SETUP
+// TODO: Check that the snaps directory exists.
+// TODO: Create a subdirectory for current day, if one does not exist.
 
 // CAMERA
 const snap = () => new Promise((resolve, reject) => {
