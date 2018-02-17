@@ -14,7 +14,7 @@ const PORT = 3000;
 // CAMERA
 const snap = () => new Promise((resolve, reject) => {
   console.log('SNAP');
-  const date = moment().format('YYYY-MM-DD-HHmmss');
+  const date = moment().format('YYYYMMDD-HHmmss');
   console.log(date);
   return shell.exec(`touch panopticat-${date}.test`, (code, stdout, stderr) => {
     console.log(code);
