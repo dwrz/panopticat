@@ -12,6 +12,7 @@ const PORT = 3000;
 
 // CAMERA
 const snap = () => {
+  console.log('SNAP');
   shell.exec('raspistill -vf -hf -o panopticat-$(date +%Y%m%d-%H%M%S).jpg', (code, stdout, stderr) => {
     console.log(code);
     console.log(stdout);
