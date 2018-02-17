@@ -7,8 +7,8 @@ const shell = require('shelljs');
 const twilio = require('twilio');
 
 const app = express();
-const PORT = 3000;
 const cronInterval = '00 */30 * * * *';
+const port = 3000;
 
 // SETUP
 // TODO: Check that the snaps directory exists.
@@ -54,6 +54,6 @@ app.get('/snap', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening on ${PORT}`);
+app.listen(port, () => {
+  console.log(`Listening on ${port}`);
 });
