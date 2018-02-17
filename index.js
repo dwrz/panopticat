@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 app.get('/snap', (req, res) => {
   snap()
     .then((filename) => {
-      res.end(filename);
+      res.sendFile(filename, { root: __dirname });
     })
     .catch((err) => {
       res.end(err);
