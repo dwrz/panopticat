@@ -37,5 +37,5 @@ Controller and web interface for Raspberry Pi camera.
 10. Install Docker.
 
 * Reference
-[[https://www.raspberrypi.org/documentation/][Raspberry Pi Documentation]]
-[[http://www.semifluid.com/2017/01/23/raspberry-pi-camera-comparison/][Raspberry Pi Camera Comparison]]
+- [[https://www.raspberrypi.org/documentation/][Raspberry Pi Documentation]]
+- [[http://www.semifluid.com/2017/01/23/raspberry-pi-camera-comparison/][Raspberry Pi Camera Comparison]]
