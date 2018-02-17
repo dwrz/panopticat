@@ -3,12 +3,12 @@
 Controller and web interface for Raspberry Pi camera.
 
 + Planned features:
-  - [ ] Capture a photograph every 30 minutes.
+  - [ ] Capture a photograph at regular intervals (default: every 30 minutes).
   - [ ] Capture a photograph on request.
     - [ ] Email / SMS photographs, if requested.
   - [ ] Archive photographs (via sshfs).
-  - [ ] HTTPS.
-  - [ ] Docker.
+  - [ ] HTTPS (self-signed).
+  - [ ] Docker image.
 
 * Hardware
 + [[https://www.raspberrypi.org/][Rasperry Pi]] Zero WH
@@ -20,9 +20,9 @@ Controller and web interface for Raspberry Pi camera.
 
 * Software
 + Raspbian
++ node.js
 + Docker
   - Alpine:Carbon
-+ node.js
 
 * Raspberry Pi Setup
 1. Download Raspbian image.
@@ -34,7 +34,7 @@ Controller and web interface for Raspberry Pi camera.
 7. Run raspi-config.
 8. Setup new user.
    - Make sure to add the new user to the video group.
-     - sudo usermod -a -G video $(whoami)
+     - ~sudo usermod -a -G video $(whoami)~
 9. Setup SSH keys, firewall (ufw), fail2ban.
 10. Install Docker.
 
