@@ -7,6 +7,11 @@ const twilio = require('twilio');
 
 const app = express();
 const PORT = 3000;
+
+// SETUP
+// CRONJOBS
+// SERVER
+
 const snap = () => {
   shell.exec('raspistill -vf -hf -o test.jpg', (code, stdout, stderr) => {
     console.log(code);
