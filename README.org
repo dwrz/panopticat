@@ -1,0 +1,49 @@
+#+BEGIN_QUOTE
+                                                          _/      _/                        _/
+     _/_/_/      _/_/_/  _/_/_/      _/_/    _/_/_/    _/_/_/_/        _/_/_/    _/_/_/  _/_/_/_/
+    _/    _/  _/    _/  _/    _/  _/    _/  _/    _/    _/      _/  _/        _/    _/    _/
+   _/    _/  _/    _/  _/    _/  _/    _/  _/    _/    _/      _/  _/        _/    _/    _/
+  _/_/_/      _/_/_/  _/    _/    _/_/    _/_/_/        _/_/  _/    _/_/_/    _/_/_/      _/_/
+ _/                                      _/
+_/                                      _/
+#+END_QUOTE
+
+Controller and web interface for Raspberry Pi camera.
+
++ Planned features:
+  - [ ] Capture a photograph every 30 minutes.
+  - [ ] Capture a photograph on request.
+    - [ ] Email / SMS photographs, if requested.
+  - [ ] Archive photographs (via sshfs).
+  - [ ] HTTPS.
+  - [ ] Docker.
+
+* Hardware
++ [[https://www.raspberrypi.org/][Rasperry Pi]] Zero WH
++ [[http://alchemy-power.com/pi-uptime-ups/][Alchemy Power Pi-UpTime UPS]]
+  - 2x 18650 Batteries (Unprotected)
++ [[https://www.waveshare.com/product/RPi-Camera-J.htm][Waveshare RPi Camera J]] (220° Fisheye)
++ 40mm PiZero Camera Cable
++ Samsung 32GB EVO Select Micro SD Card
+
+* Software
++ Raspbian
++ Docker
+  - Alpine:Carbon
++ node.js
+
+* Raspberry Pi Setup
+1. Download Raspbian image.
+2. Copy image to MicroSD card.
+3. Enable SSH and add WiFi credentials.
+4. Boot and SSH into RPi.
+5. Change default password.
+6. Update system.
+7. Run raspi-config.
+8. Setup new user.
+9. Setup SSH keys, firewall (ufw), fail2ban.
+10. Install Docker.
+
+* Reference
+[[https://www.raspberrypi.org/documentation/][Raspberry Pi Documentation]]
+[[http://www.semifluid.com/2017/01/23/raspberry-pi-camera-comparison/][Raspberry Pi Camera Comparison]]
