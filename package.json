@@ -1,0 +1,33 @@
+{
+  "name": "panopticat",
+  "version": "0.0.1",
+  "description": "Raspberry Pi webcam controller.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwrz/panopticat.git"
+  },
+  "keywords": [
+    "panopticat",
+    "raspberry",
+    "pi",
+    "rpi",
+    "webcam"
+  ],
+  "author": "David Wen Riccardi-Zhu (dwrz@dwrz.net)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwrz/panopticat/issues"
+  },
+  "homepage": "https://github.com/dwrz/panopticat#readme",
+  "dependencies": {
+    "cron": "^1.3.0",
+    "express": "^4.16.2",
+    "nodemailer": "^4.4.2",
+    "shelljs": "^0.8.1",
+    "twilio": "^3.11.3"
+  }
+}
