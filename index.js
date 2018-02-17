@@ -25,3 +25,10 @@ const snapEvery30Min = new cron.CronJob('* */30 * * * *', snap);
 snapEvery30Min.start();
 
 // SERVER
+app.get('/', (req, res) => {
+  res.end('OK');
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
+});
