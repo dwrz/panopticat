@@ -13,11 +13,16 @@ const PORT = 3000;
 // CAMERA
 const snap = () => {
   console.log('SNAP');
-  shell.exec('raspistill -vf -hf -o panopticat-$(date +%Y%m%d-%H%M%S).jpg', (code, stdout, stderr) => {
+  shell.exec('touch panopticat-$(date +%Y%m%d-%H%M%S).test', (code, stdout, stderr) => {
     console.log(code);
     console.log(stdout);
     console.log(stderr);
   });
+  // shell.exec('raspistill -vf -hf -o panopticat-$(date +%Y%m%d-%H%M%S).jpg', (code, stdout, stderr) => {
+  //   console.log(code);
+  //   console.log(stdout);
+  //   console.log(stderr);
+  // });
 };
 
 // CRONJOBS
