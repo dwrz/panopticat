@@ -20,4 +20,8 @@ const snap = () => {
   });
 };
 
-snap();
+// CRONJOBS
+const snapEvery30Min = new cron.CronJob('* */30 * * * *', snap);
+snapEvery30Min.start();
+
+// SERVER
