@@ -41,6 +41,16 @@ app.get('/', (req, res) => {
   res.end('OK');
 });
 
+app.get('/snap', (req, res) => {
+  snap()
+    .then((filename) => {
+      res.end(filename);
+    })
+    .catch((err) => {
+      res.end(err);
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });
