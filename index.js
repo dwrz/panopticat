@@ -8,6 +8,7 @@ const twilio = require('twilio');
 
 const app = express();
 const PORT = 3000;
+const cronInterval = '00 */30 * * * *';
 
 // SETUP
 // TODO: Check that the snaps directory exists.
@@ -35,8 +36,8 @@ const snap = () => new Promise((resolve, reject) => {
 });
 
 // CRONJOBS
-const snapEvery30Min = new cron.CronJob('00 */30 * * * *', snap);
-snapEvery30Min.start();
+const snapCron = new cron.CronJob(cronInterval, snap);
+snapCron.start();
 
 // SERVER
 app.get('/', (req, res) => {
