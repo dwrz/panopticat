@@ -33,6 +33,8 @@ Controller and web interface for Raspberry Pi camera.
 6. Update system.
 7. Run raspi-config.
 8. Setup new user.
+   - Make sure to add the new user to the video group.
+     - sudo usermod -a -G video $(whoami)
 9. Setup SSH keys, firewall (ufw), fail2ban.
 10. Install Docker.
 
