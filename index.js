@@ -12,19 +12,25 @@ const PORT = 3000;
 // SETUP
 
 // CAMERA
-const snap = () => {
+const snap = () => new Promise((resolve, reject) => {
   console.log('SNAP');
-  shell.exec('touch panopticat-$(date +%Y%m%d-%H%M%S).test', (code, stdout, stderr) => {
+  const date = moment().format('YYYY-MM-DD-HHmmss');
+  console.log(date);
+  return shell.exec(`touch panopticat-${date}.test`, (code, stdout, stderr) => {
     console.log(code);
     console.log(stdout);
     console.log(stderr);
+    if (code !== 0) {
+      reject(new Error(stderr));
+    }
+    resolve(`panopticat-${date}.test`);
   });
   // shell.exec('raspistill -vf -hf -o panopticat-$(date +%Y%m%d-%H%M%S).jpg', (code, stdout, stderr) => {
   //   console.log(code);
   //   console.log(stdout);
   //   console.log(stderr);
   // });
-};
+});
 
 // CRONJOBS
 const snapEvery30Min = new cron.CronJob('00 */30 * * * *', snap);
