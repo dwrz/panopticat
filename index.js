@@ -9,9 +9,8 @@ const app = express();
 const PORT = 3000;
 
 // SETUP
-// CRONJOBS
-// SERVER
 
+// CAMERA
 const snap = () => {
   shell.exec('raspistill -vf -hf -o panopticat-$(date +%Y%m%d-%H%M%S).jpg', (code, stdout, stderr) => {
     console.log(code);
