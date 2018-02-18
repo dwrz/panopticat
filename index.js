@@ -8,7 +8,7 @@ const shell = require('shelljs');
 const twilio = require('twilio');
 
 const app = express();
-const cronInterval = '00 */30 * * * *';
+const cronSnapInterval = '00 */30 * * * *';
 const cronDaily = '59 59 23 * * *';
 const port = 3000;
 
@@ -46,9 +46,9 @@ const snap = () => new Promise((resolve, reject) => {
 });
 
 // CRONJOBS
-const snapCron = new cron.CronJob(cronInterval, snap);
 const createDateDirCron = new cron.CronJob(cronDaily, createDateDir);
 createDateDirCron.start();
+const snapCron = new cron.CronJob(cronSnapInterval, snap);
 snapCron.start();
 
 // SERVER
