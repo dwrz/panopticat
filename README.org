@@ -2,11 +2,13 @@
 
 Controller and web interface for Raspberry Pi camera.
 
++ Current features:
+  - [X] Capture a photograph at regular intervals (default: every 30 minutes).
+  - [X] Capture a photograph on request.
+
 + Planned features:
-  - [ ] Capture a photograph at regular intervals (default: every 30 minutes).
-  - [ ] Capture a photograph on request.
-    - [ ] Email / SMS photographs, if requested.
-  - [ ] Archive photographs (via sshfs).
+  - [ ] Email / SMS photographs, if requested.
++ [ ] Archive photographs (via sshfs).
   - [ ] HTTPS (self-signed).
   - [ ] Docker image.
 
