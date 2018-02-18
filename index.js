@@ -22,6 +22,8 @@ const checkOrMakeDir = dir => stat(dir)
   });
 const getDateTime = () => moment().format('YYYYMMDD-HHMMss');
 const getDate = dateTimeString => dateTimeString.substring(0, 8);
+const createDateDir = () => checkOrMakeDir(`./snaps/${getDate(getDateTime())}`);
+
 // SETUP
 // TODO: Check that the snaps directory exists.
 // TODO: Create a subdirectory for current day, if one does not exist.
