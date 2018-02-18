@@ -22,9 +22,7 @@ const checkOrMakeDir = dir => stat(dir)
     }
     return true;
   })
-  .catch(() => {
-    return mkdir(dir);
-  });
+  .catch(() => mkdir(dir));
 const getDateTime = () => moment().format('YYYYMMDD-HHmmss');
 const getDate = dateTimeString => dateTimeString.substring(0, 8);
 const createDateDir = () => checkOrMakeDir(`./snaps/${getDate(getDateTime())}`);
