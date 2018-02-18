@@ -12,6 +12,7 @@ const cronSnapInterval = '00 */30 * * * *';
 const cronDaily = '59 59 23 * * *';
 const port = 3000;
 
+// HELPERS
 const mkdir = promisify(fs.mkdir);
 const stat = promisify(fs.stat);
 const checkOrMakeDir = dir => stat(dir)
