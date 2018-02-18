@@ -21,6 +21,9 @@ const checkOrMakeDir = dir => stat(dir)
       return mkdir(dir);
     }
     return true;
+  })
+  .catch(() => {
+    return mkdir(dir);
   });
 const getDateTime = () => moment().format('YYYYMMDD-HHMMss');
 const getDate = dateTimeString => dateTimeString.substring(0, 8);
