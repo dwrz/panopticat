@@ -26,7 +26,7 @@ const snap = () => new Promise((resolve, reject) => {
     if (code !== 0) {
       reject(new Error(stderr));
     }
-    resolve(`panopticat-${date}.test`);
+    resolve(`panopticat-${date}.jpg`);
   });
 });
 
