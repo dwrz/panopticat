@@ -13,6 +13,13 @@ const port = 3000;
 
 const mkdir = promisify(fs.mkdir);
 const stat = promisify(fs.stat);
+const checkOrMakeDir = dir => stat(dir)
+  .then((stats) => {
+    if (stats.isDirectory() === false) {
+      return mkdir(dir);
+    }
+    return true;
+  });
 // SETUP
 // TODO: Check that the snaps directory exists.
 // TODO: Create a subdirectory for current day, if one does not exist.
