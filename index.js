@@ -40,12 +40,13 @@ checkOrMakeDir('snaps')
 // CAMERA
 const snap = () => new Promise((resolve, reject) => {
   const snapDate = getDateTime();
-  const snapCmd = `raspistill -vf -hf -o ./snaps/${getDate(snapDate)}/panopticat-${snapDate}.jpg`;
+  const snapFile = `./snaps/${getDate(snapDate)}/panopticat-${snapDate}.jpg`;
+  const snapCmd = `raspistill -vf -hf -o ${snapFile}`;
   return shell.exec(snapCmd, (code, stdout, stderr) => {
     if (code !== 0) {
       return reject(new Error(stderr));
     }
-    return resolve(`panopticat-${snapDate}.jpg`);
+    return resolve(snapFile);
   });
 });
 
