@@ -19,7 +19,7 @@ const snap = () => new Promise((resolve, reject) => {
   console.log('SNAP');
   const date = moment().format('YYYYMMDD-HHmmss');
   console.log(date);
-  return shell.exec(`touch panopticat-${date}.test`, (code, stdout, stderr) => {
+  return shell.exec(`raspistill -vf -hf -o panopticat-${date}.jpg`, (code, stdout, stderr) => {
     console.log(code);
     console.log(stdout);
     console.log(stderr);
@@ -28,11 +28,6 @@ const snap = () => new Promise((resolve, reject) => {
     }
     resolve(`panopticat-${date}.test`);
   });
-  // shell.exec('raspistill -vf -hf -o panopticat-$(date +%Y%m%d-%H%M%S).jpg', (code, stdout, stderr) => {
-  //   console.log(code);
-  //   console.log(stdout);
-  //   console.log(stderr);
-  // });
 });
 
 // CRONJOBS
