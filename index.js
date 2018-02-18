@@ -63,7 +63,8 @@ app.get('/snap', (req, res) => {
       res.sendFile(filename, { root: __dirname });
     })
     .catch((err) => {
-      res.end(err);
+      console.error(err);
+      res.end('ERROR');
     });
 });
 
