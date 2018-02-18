@@ -11,6 +11,8 @@ const app = express();
 const cronInterval = '00 */30 * * * *';
 const port = 3000;
 
+const mkdir = promisify(fs.mkdir);
+const stat = promisify(fs.stat);
 // SETUP
 // TODO: Check that the snaps directory exists.
 // TODO: Create a subdirectory for current day, if one does not exist.
