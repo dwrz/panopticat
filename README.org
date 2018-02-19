@@ -7,10 +7,12 @@ Controller and web interface for Raspberry Pi camera.
   - [X] Capture a photograph on request.
 
 + Planned features:
-  - [ ] Email / SMS photographs, if requested.
-+ [ ] Archive photographs (via sshfs).
-  - [ ] HTTPS (self-signed).
-  - [ ] Docker image.
++ [ ] User configuration.
++ [ ] Capture and email photograph on request.
++ [ ] Run shell scripts on capture.
+  - To e.g., archive photographs via sshfs.
++ [ ] HTTPS (self-signed).
++ [ ] Docker image.
 
 * Hardware
 + [[https://www.raspberrypi.org/][Rasperry Pi]] Zero WH
