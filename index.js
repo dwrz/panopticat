@@ -5,7 +5,6 @@ const mail = require('nodemailer');
 const moment = require('moment');
 const { promisify } = require('util');
 const shell = require('shelljs');
-const twilio = require('twilio');
 
 const app = express();
 const cronSnapInterval = '00 */30 * * * *';
