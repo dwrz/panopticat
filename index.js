@@ -52,6 +52,7 @@ const logStartup = (mode) => {
   console.log(getIP());
   console.log(`LISTENING ON PORT ${port}.`);
   console.log(`USING ${mode}.`);
+  console.log(`SECRET: ${secret}`);
 };
 
 // SETUP
@@ -92,14 +93,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/snap', (req, res) => {
-  snap()
-    .then((filename) => {
-      res.sendFile(filename, { root: __dirname });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.end('ERROR');
-    });
+  if (req.params.secret === secret) {
+    return snap()
+      .then((filename) => {
+        res.sendFile(filename, { root: __dirname });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.end('ERROR');
+      });
+  }
+  return res.end('');
 });
 
 if (credentials.cert && credentials.key) {
