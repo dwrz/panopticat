@@ -93,7 +93,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/snap', (req, res) => {
-  if (req.params.secret === secret) {
+  if (req.query.secret === secret) {
     return snap()
       .then((filename) => {
         res.sendFile(filename, { root: __dirname });
