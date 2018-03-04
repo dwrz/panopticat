@@ -11,7 +11,9 @@ const config = require('./config.js')();
 const app = express();
 const cronSnapInterval = config.snapInterval;
 const cronDaily = '59 59 23 * * *';
-const port = config.port;
+const {
+  credentials, port, secret, snapInterval,
+} = config;
 
 // HELPERS
 const mkdir = promisify(fs.mkdir);
@@ -52,7 +54,7 @@ const snap = () => new Promise((resolve, reject) => {
 // CRONJOBS
 const createDateDirCron = new cron.CronJob(cronDaily, createDateDir);
 createDateDirCron.start();
-const snapCron = new cron.CronJob(cronSnapInterval, snap);
+const snapCron = new cron.CronJob(snapInterval, snap);
 snapCron.start();
 
 // SERVER
