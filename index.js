@@ -48,6 +48,11 @@ const getIP = () => {
     return message;
   }, 'PANOPTICAT IP:\n');
 };
+const logStartup = (mode) => {
+  console.log(getIP());
+  console.log(`LISTENING ON PORT ${port}.`);
+  console.log(`USING ${mode}.`);
+};
 
 // SETUP
 checkOrMakeDir('snaps')
@@ -100,10 +105,10 @@ app.get('/snap', (req, res) => {
 if (credentials.cert && credentials.key) {
   const server = https.createServer(credentials, app);
   server.listen(port, () => {
-    console.log(`Listening on ${port}`);
+    logStartup('HTTPS');
   });
 } else {
   app.listen(port, () => {
-    console.log(`Listening on ${port}`);
+    logStartup('HTTP');
   });
 }
