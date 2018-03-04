@@ -4,6 +4,7 @@ const fs = require('fs');
 const https = require('https');
 const mail = require('nodemailer');
 const moment = require('moment');
+const os = require('os');
 const { promisify } = require('util');
 const shell = require('shelljs');
 
