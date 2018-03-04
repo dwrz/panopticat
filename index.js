@@ -13,7 +13,11 @@ const app = express();
 const cronSnapInterval = config.snapInterval;
 const cronDaily = '59 59 23 * * *';
 const {
-  credentials, port, secret, snapInterval,
+  camera,
+  credentials,
+  port,
+  secret,
+  snapInterval,
 } = config;
 
 // HELPERS
@@ -43,8 +47,13 @@ checkOrMakeDir('snaps')
 const snap = () => new Promise((resolve, reject) => {
   const snapDate = getDateTime();
   const snapFile = `./snaps/${getDate(snapDate)}/panopticat-${snapDate}.jpg`;
-  const snapCmd = `raspistill -vf -hf -o ${snapFile}`;
-  return shell.exec(snapCmd, (code, stdout, stderr) => {
+  const snapCmd = () => {
+    if (camera.flip === true) {
+      return `raspistill -vf -hf -o ${snapFile}`;
+    }
+    return `raspistill -o ${snapFile}`;
+  };
+  return shell.exec(snapCmd(), (code, stdout, stderr) => {
     if (code !== 0) {
       return reject(new Error(stderr));
     }
