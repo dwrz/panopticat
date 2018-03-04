@@ -15,9 +15,7 @@ Controller and web interface for Raspberry Pi camera.
 + [ ] Docker image.
 
 * Hardware
-+ [[https://www.raspberrypi.org/][Rasperry Pi]] Zero WH
-+ [[http://alchemy-power.com/pi-uptime-ups/][Alchemy Power Pi-UpTime UPS]]
-  - 2x 18650 Batteries (Unprotected)
++ [[https://www.raspberrypi.org/][Rasperry Pi]] Zero W
 + [[https://www.waveshare.com/product/RPi-Camera-J.htm][Waveshare RPi Camera J]] (220° Fisheye)
 + 40mm PiZero Camera Cable
 + Samsung 32GB EVO Select Micro SD Card
