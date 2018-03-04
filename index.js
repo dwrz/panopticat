@@ -6,10 +6,12 @@ const moment = require('moment');
 const { promisify } = require('util');
 const shell = require('shelljs');
 
+const config = require('./config.js')();
+
 const app = express();
-const cronSnapInterval = '00 */30 * * * *';
+const cronSnapInterval = config.snapInterval;
 const cronDaily = '59 59 23 * * *';
-const port = 3000;
+const port = config.port;
 
 // HELPERS
 const mkdir = promisify(fs.mkdir);
