@@ -1,6 +1,7 @@
 const cron = require('cron');
 const express = require('express');
 const fs = require('fs');
+const https = require('https');
 const mail = require('nodemailer');
 const moment = require('moment');
 const { promisify } = require('util');
@@ -73,6 +74,13 @@ app.get('/snap', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
-});
+if (credentials.cert && credentials.key) {
+  const server = https.createServer(credentials, app);
+  server.listen(port, () => {
+    console.log(`Listening on ${port}`);
+  });
+} else {
+  app.listen(port, () => {
+    console.log(`Listening on ${port}`);
+  });
+}
