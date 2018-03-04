@@ -19,6 +19,9 @@ module.exports = () => {
       cert,
       key,
     },
+    camera: {
+      flip: false,
+    },
     port: 3000,
     secret: crypto.randomBytes(24).toString('hex'),
     snapInterval: '00 */30 * * * *',
