@@ -35,6 +35,19 @@ const checkOrMakeDir = dir => stat(dir)
 const getDateTime = () => moment().format('YYYYMMDD-HHmmss');
 const getDate = dateTimeString => dateTimeString.substring(0, 8);
 const createDateDir = () => checkOrMakeDir(`./snaps/${getDate(getDateTime())}`);
+const getIP = () => {
+  const nets = os.networkInterfaces();
+  return Object.keys(nets).reduce((str, face) => {
+    if (face === 'lo') {
+      return str;
+    }
+    let message = str;
+    message += `\n${face}:\n`;
+    message += `IPv4: ${nets[face][0].address}\n`;
+    message += `IPv6: ${nets[face][1].address}\n`;
+    return message;
+  }, 'PANOPTICAT IP:\n');
+};
 
 // SETUP
 checkOrMakeDir('snaps')
