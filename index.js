@@ -88,9 +88,7 @@ const snapCron = new cron.CronJob(snapInterval, snap);
 snapCron.start();
 
 // SERVER
-app.get('/', (req, res) => {
-  res.end('OK');
-});
+app.use(express.static('public'));
 
 app.get('/snap', (req, res) => {
   if (req.query.secret === secret) {
