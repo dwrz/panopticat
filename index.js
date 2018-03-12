@@ -94,14 +94,14 @@ app.get('/snap', (req, res) => {
   if (req.query.secret === secret) {
     return snap()
       .then((filename) => {
-        res.sendFile(filename, { root: __dirname });
+        return res.sendFile(filename, { root: __dirname });
       })
       .catch((err) => {
         console.error(err);
-        res.end('ERROR');
+        return res.end('ERROR');
       });
   }
-  return res.end('');
+  return res.status(403).end('FORBIDDEN');
 });
 
 if (credentials.cert && credentials.key) {
