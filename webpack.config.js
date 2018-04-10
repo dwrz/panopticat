@@ -6,7 +6,7 @@ const paths = {
 };
 
 module.exports = {
-  entry: path.join(paths.src, 'app.jsx'),
+  entry: path.join(paths.src, 'App.jsx'),
   output: {
     path: paths.public,
     filename: 'bundle.js',
