@@ -89,7 +89,7 @@ const snapCron = new cron.CronJob(snapInterval, snap);
 snapCron.start();
 
 // SERVER
-app.use(helmet);
+app.use(helmet());
 app.use(express.static('public'));
 
 app.get('/snap', (req, res) => {
