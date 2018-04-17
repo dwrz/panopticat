@@ -101,6 +101,16 @@ app.use(session({
 }));
 app.use(express.static('public'));
 
+app.post('/login', (req, res) => {
+  const isLoggedIn = req.session && !!req.session.user;
+  if (!isLoggedIn) {
+    // Verify login.
+    req.session.user = req.body.username;
+    return res.send(req.session.user);
+  }
+  return res.redirect('/');
+});
+
 app.get('/snap', (req, res) => {
   if (req.query.secret === secret) {
     return snap()
