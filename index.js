@@ -116,9 +116,7 @@ app.get('/logout', (req, res) => req.session.destroy(err => res.redirect('/')));
 app.get('/snap', (req, res) => {
   if (req.query.secret === secret) {
     return snap()
-      .then((filename) => {
-        return res.sendFile(filename, { root: __dirname });
-      })
+      .then(filename => res.sendFile(filename, { root: __dirname }))
       .catch((err) => {
         console.error(err);
         return res.end('ERROR');
