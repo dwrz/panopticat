@@ -93,6 +93,12 @@ snapCron.start();
 
 // SERVER
 app.use(helmet());
+app.use(session({
+  store: new FileStore(),
+  resave: false,
+  saveUninitialized: false,
+  secret: 'test',
+}));
 app.use(express.static('public'));
 
 app.get('/snap', (req, res) => {
