@@ -11,6 +11,7 @@ const { promisify } = require('util');
 const session = require('express-session');
 const shell = require('shelljs');
 
+const FileStore = fileStore(session);
 const config = require('./config.js')();
 
 const app = express();
