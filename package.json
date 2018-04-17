@@ -41,6 +41,7 @@
     "popper.js": "^1.14.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "session-file-store": "^1.2.0",
     "shelljs": "^0.8.1",
     "twilio": "^3.11.3"
   },
