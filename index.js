@@ -111,6 +111,8 @@ app.post('/login', (req, res) => {
   return res.redirect('/');
 });
 
+app.get('/logout', (req, res) => req.session.destroy(err => res.redirect('/')));
+
 app.get('/snap', (req, res) => {
   if (req.query.secret === secret) {
     return snap()
