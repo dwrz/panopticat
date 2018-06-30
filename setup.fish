@@ -1,0 +1,9 @@
+#!/usr/bin/fish
+
+set -x PANOPTICAT_CAMERA_FLIP false
+set -x PANOPTICAT_ENV GLOBAL
+set -x PANOPTICAT_GLOBAL_IP (curl ifconfig.co)
+set -x PANOPTICAT_GLOBAL_PORT 8555
+set -x PANOPTICAT_INTERVAL "00 */30 * * * *"
+set -x PANOPTICAT_LOCAL_PORT 3000
+set -x PANOPTICAT_SECRET
