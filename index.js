@@ -107,13 +107,16 @@ app.use(bodyParser.json());
 const checkLogin = s => s.pw && s.pw === secret;
 
 app.post('/login', (req, res) => {
-  const isLoggedIn = req.session && !!req.session.user;
+  const isLoggedIn = checkLogin(req.session);
   if (!isLoggedIn) {
     // Verify login.
-    req.session.user = req.body.username;
-    return res.send(req.session.user);
+    if (req.body.pw === secret) {
+      req.session.pw = req.body.pw;
+      return res.status(200).send(true);
+    }
+    return res.status(403).send(false);
   }
-  return res.redirect('/');
+  return res.status(200).send(true);
 });
 
 app.get('/logout', (req, res) => req.session.destroy(err => res.redirect('/')));
