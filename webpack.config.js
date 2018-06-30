@@ -6,6 +6,10 @@ const paths = {
   public: path.resolve(__dirname, 'public'),
   src: path.resolve(__dirname, 'src'),
 };
+const URL = {
+  GLOBAL: `https://${process.env.PANOPTICAT_GLOBAL_IP}:${process.env.PANOPTICAT_GLOBAL_PORT}`,
+  LOCAL: `http://localhost:${process.env.PANOPTICAT_LOCAL_PORT}`,
+};
 
 module.exports = {
   entry: path.join(paths.src, 'App.jsx'),
