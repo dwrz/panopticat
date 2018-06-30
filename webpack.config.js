@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const paths = {
   public: path.resolve(__dirname, 'public'),
