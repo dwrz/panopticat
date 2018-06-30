@@ -46,18 +46,37 @@ class App extends React.Component {
   }
 
   render() {
+    const { loggedIn } = this.state;
     return (
       <div>
-        <div className="jumbotron">
-          <h1>Panopticat</h1>
-        </div>
         <div>
-          <div className="form-group mx-sm-3 mb-2">
-            <label htmlFor="inputPassword2" className="sr-only">Password</label>
-            <input type="password" className="form-control" id="password" placeholder="Password" />
+          <div className="jumbotron">
+            <h1>Panopticat</h1>
           </div>
-          <button type="submit" className="btn btn-primary mb-2">Confirm identity</button>
         </div>
+        {
+          !loggedIn &&
+            <div className="input-group mb-3">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+                aria-label="Password"
+                aria-describedby="basic-addon2"
+                value={this.state.pw}
+                onChange={e => this.handlePasswordInput(e)}
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  onClick={() => this.handleLogin()}
+                >
+                    Log In
+                </button>
+              </div>
+            </div>
+          }
       </div>
     );
   }
