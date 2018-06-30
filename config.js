@@ -34,11 +34,11 @@ module.exports = () => {
       key,
     },
     camera: {
-      flip: false,
+      flip: process.env.PANOPTICAT_CAMERA_FLIP === 'true',
     },
-    port: 3000,
-    secret: crypto.randomBytes(24).toString('hex'),
-    snapInterval: '00 */30 * * * *',
+    port: process.env.PANOPTICAT_PORT || 3000,
+    secret: process.env.PANOPTICAT_SECRET || crypto.randomBytes(24).toString('hex'),
+    snapInterval: setSnapInterval(),
   };
   return config;
 };
