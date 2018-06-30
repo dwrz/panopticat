@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const env = process.env.PANOPTICAT_ENV === 'LOCAL' ? 'LOCAL' : 'GLOBAL';
 const paths = {
   public: path.resolve(__dirname, 'public'),
   src: path.resolve(__dirname, 'src'),
