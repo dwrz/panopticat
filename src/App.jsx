@@ -13,6 +13,27 @@ class App extends React.Component {
     };
   }
 
+  handleLogin() {
+    const { pw } = this.state;
+    const url = 'http://localhost:3000/login'; // TODO: Fix URL.
+    const body = { pw };
+    const config = {
+      validateStatus: sc => sc >= 200 && sc < 500,
+    };
+    axios.post(url, body, config)
+      .then((res) => {
+        console.log(res.data);
+        if (res.status === 200 && res.data === true) {
+          this.setState({
+            loggedIn: true,
+          });
+        }
+      })
+      .catch((e) => {
+        alert('Network error.'); // TODO: Fix; don't use alert.
+      });
+  }
+
   handlePasswordInput(e) {
     this.setState({
       pw: e.target.value,
