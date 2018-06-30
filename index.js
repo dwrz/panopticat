@@ -101,6 +101,8 @@ app.use(session({
   secret: crypto.randomBytes(24).toString('hex'),
 }));
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.post('/login', (req, res) => {
   const isLoggedIn = req.session && !!req.session.user;
