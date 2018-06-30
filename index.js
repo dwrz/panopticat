@@ -17,7 +17,6 @@ const app = express();
 const FileStore = fileStore(session);
 const config = require('./config.js')();
 
-const cronSnapInterval = config.snapInterval;
 const cronDaily = '59 59 23 * * *';
 const {
   camera,
