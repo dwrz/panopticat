@@ -59,4 +59,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      PANOPTICAT_URL: JSON.stringify(URL[env]),
+    }),
+  ],
 };
