@@ -104,6 +104,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const checkLogin = s => s.pw && s.pw === secret;
+
 app.post('/login', (req, res) => {
   const isLoggedIn = req.session && !!req.session.user;
   if (!isLoggedIn) {
