@@ -13,6 +13,10 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.handleLogin();
+  }
+
   handleLogin() {
     const { pw } = this.state;
     const url = 'http://localhost:3000/login'; // TODO: Fix URL.
