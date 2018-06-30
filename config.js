@@ -36,7 +36,7 @@ module.exports = () => {
     camera: {
       flip: process.env.PANOPTICAT_CAMERA_FLIP === 'true',
     },
-    port: process.env.PANOPTICAT_PORT || 3000,
+    port: process.env.PANOPTICAT_LOCAL_PORT || 3000,
     secret: process.env.PANOPTICAT_SECRET || crypto.randomBytes(24).toString('hex'),
     snapInterval: setSnapInterval(),
   };
