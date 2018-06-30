@@ -13,6 +13,12 @@ class App extends React.Component {
     };
   }
 
+  handlePasswordInput(e) {
+    this.setState({
+      pw: e.target.value,
+    });
+  }
+
   render() {
     return (
       <div>
