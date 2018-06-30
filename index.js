@@ -98,7 +98,7 @@ app.use(session({
   store: new FileStore(),
   resave: false,
   saveUninitialized: false,
-  secret: 'test',
+  secret: crypto.randomBytes(24).toString('hex'),
 }));
 app.use(express.static('public'));
 
