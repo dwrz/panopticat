@@ -122,7 +122,8 @@ app.post('/login', (req, res) => {
 app.get('/logout', (req, res) => req.session.destroy(() => res.redirect('/')));
 
 app.get('/snap', (req, res) => {
-  if (req.query.secret === secret) {
+  const isLoggedIn = checkLogin(req.session);
+  if (isLoggedIn) {
     return snap()
       .then(filename => res.sendFile(filename, { root: __dirname }))
       .catch((err) => {
@@ -130,7 +131,7 @@ app.get('/snap', (req, res) => {
         return res.end('ERROR');
       });
   }
-  return res.status(403).end('FORBIDDEN');
+  return res.status(403).end('Not authorized or authenticated.');
 });
 
 if (credentials.cert && credentials.key) {
