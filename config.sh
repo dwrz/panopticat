@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export PANOPTICAT_CAMERA_FLIP=false
+export PANOPTICAT_INTERVAL="00 */30 * * * *"
+export PANOPTICAT_PORT=3000
+export PANOPTICAT_SECRET=
