@@ -15,6 +15,18 @@ const readFile = (file) => {
 const cert = readFile('./panopticat.cert');
 const key = readFile('./panopticat.key');
 
+const setSnapInterval = () => {
+  try {
+    const job = new cron.CronJob(process.env.PANOPTICAT_INTERVAL, () => {
+    });
+    job.stop();
+    return process.env.PANOPTICAT_INTERVAL;
+  } catch (e) {
+    console.log('PANOPTICAT INTERVAL NOT VALID. USING DEFAULT (EVERY HALF-HOUR).');
+    return '00 */30 * * * *';
+  }
+};
+
 module.exports = () => {
   const config = {
     credentials: {
